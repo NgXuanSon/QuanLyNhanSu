@@ -10,121 +10,107 @@ using QuanLyNhanSu.Models;
 
 namespace QuanLyNhanSu.Controllers
 {
-    public class NhanVienController : Controller
+    public class RoleController : Controller
     {
-        //khai báo db context để làm việc với database
         private QuanLyNhanSuDBContext db = new QuanLyNhanSuDBContext();
 
-        // GET: NhanVien
+        // GET: Role
         public ActionResult Index()
         {
-            // trả về view index kèm theo list danh sách  nhân viên trong database
-            return View(db.NhanViens.ToList());
+            return View(db.Roles.ToList());
         }
 
-        // GET: NhanVien/Details/5
+        // GET: Role/Details/5
         public ActionResult Details(string id)
         {
-            //nếu id truyền vào bằng null thì trả về trang notfound
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // tìm kiếm nhân viên theo id được gửi lên
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            if (nhanVien == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
-                // trả về trang notfound nếu không tìm thấy dữ liệu
                 return HttpNotFound();
             }
-            // trả về view kèm theo thông tin của nhân viên
-            return View(nhanVien);
+            return View(role);
         }
 
-        // GET: NhanVien/Create
+        // GET: Role/Create
         public ActionResult Create()
         {
-            // trả về view để cho người dùng nhập thông tin
             return View();
         }
 
-        // POST: NhanVien/Create
+        // POST: Role/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        // quản lý phiên làm việc giữa client và sẻver
         [ValidateAntiForgeryToken]
-        // nhận giá trị các thuộc tính từ client gửi lên
-        public ActionResult Create([Bind(Include = "IDNV,TenNV,GioiTinh,Tuoi,SDT,Email,DiaChi,NgayVaolam")] NhanVien nhanVien)
+        public ActionResult Create([Bind(Include = "RoleID,RoleName")] Role role)
         {
             if (ModelState.IsValid)
             {
-                db.NhanViens.Add(nhanVien);
+                db.Roles.Add(role);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nhanVien);
+            return View(role);
         }
 
-        // GET: NhanVien/Edit/5
+        // GET: Role/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            if (nhanVien == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(nhanVien);
+            return View(role);
         }
 
-        // POST: NhanVien/Edit/5
+        // POST: Role/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDNV,TenNV,GioiTinh,Tuoi,SDT,Email,DiaChi,NgayVaolam")] NhanVien nhanVien)
+        public ActionResult Edit([Bind(Include = "RoleID,RoleName")] Role role)
         {
-            // nếu thỏa mãn ràng buộc dữ liệu
             if (ModelState.IsValid)
             {
-                // add đối tượng gửi lên từ phía client vào db context
-                db.Entry(nhanVien).State = EntityState.Modified;
-                //lưu thay đổi vào database
+                db.Entry(role).State = EntityState.Modified;
                 db.SaveChanges();
-                // điều hướng về action index
                 return RedirectToAction("Index");
             }
-            // giữ nguyên view về create kèm thông báo lỗi
-            return View(nhanVien);
+            return View(role);
         }
 
-        // GET: NhanVien/Delete/5
+        // GET: Role/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            if (nhanVien == null)
+            Role role = db.Roles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(nhanVien);
+            return View(role);
         }
 
-        // POST: NhanVien/Delete/5
+        // POST: Role/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            db.NhanViens.Remove(nhanVien);
+            Role role = db.Roles.Find(id);
+            db.Roles.Remove(role);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -7,13 +7,13 @@ namespace QuanLyNhanSu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Create_Table_TicTuc : IMigrationMetadata
+    public sealed partial class Create_Table_TinTuc : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Create_Table_TicTuc));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Create_Table_TinTuc));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111290403125_Create_Table_TicTuc"; }
+            get { return "202112021852077_Create_Table_TinTuc"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace QuanLyNhanSu.Models
 {
@@ -15,7 +16,7 @@ namespace QuanLyNhanSu.Models
         public string Author { get; set; }
         [Display(Name = "Hình ảnh")]
         public string QuanLyAnh { get; set; }
-       
+        [AllowHtml]
         [Display(Name = "Nội dung")]
         public string Context { get; set; }
     }

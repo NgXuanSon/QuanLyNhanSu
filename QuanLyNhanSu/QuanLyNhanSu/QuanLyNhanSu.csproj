@@ -132,11 +132,13 @@
     <Compile Include="Controllers\BangLuongController.cs" />
     <Compile Include="Controllers\ChamCongController.cs" />
     <Compile Include="Controllers\ChucVuController.cs" />
+    <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhenThuongController.cs" />
     <Compile Include="Controllers\KyLuatController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\PhongBanController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,13 +171,17 @@
     <Compile Include="Migrations\202111290351072_Create_Table_KyLuat.Designer.cs">
       <DependentUpon>202111290351072_Create_Table_KyLuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111290403125_Create_Table_TicTuc.cs" />
-    <Compile Include="Migrations\202111290403125_Create_Table_TicTuc.Designer.cs">
-      <DependentUpon>202111290403125_Create_Table_TicTuc.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202111290440489_Create_Table_Account.cs" />
     <Compile Include="Migrations\202111290440489_Create_Table_Account.Designer.cs">
       <DependentUpon>202111290440489_Create_Table_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112021706205_Role.cs" />
+    <Compile Include="Migrations\202112021706205_Role.Designer.cs">
+      <DependentUpon>202112021706205_Role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112021852077_Create_Table_TinTuc.cs" />
+    <Compile Include="Migrations\202112021852077_Create_Table_TinTuc.Designer.cs">
+      <DependentUpon>202112021852077_Create_Table_TinTuc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -187,7 +193,9 @@
     <Compile Include="Models\NhanVien.cs" />
     <Compile Include="Models\PhongBan.cs" />
     <Compile Include="Models\QuanLyNhanSuDBContext.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\TinTuc.cs" />
+    <Compile Include="Models\userRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -609,15 +617,23 @@
     <Content Include="Views\KyLuat\Details.cshtml" />
     <Content Include="Views\KyLuat\Edit.cshtml" />
     <Content Include="Views\KyLuat\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\TinTuc\Create.cshtml" />
     <Content Include="Views\TinTuc\Delete.cshtml" />
     <Content Include="Views\TinTuc\Details.cshtml" />
     <Content Include="Views\TinTuc\Edit.cshtml" />
     <Content Include="Views\TinTuc\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Excel\Index.cshtml" />
+    <Content Include="Views\NhanVien\uploadfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="upload\Excel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -654,11 +670,14 @@
     <EmbeddedResource Include="Migrations\202111290351072_Create_Table_KyLuat.resx">
       <DependentUpon>202111290351072_Create_Table_KyLuat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111290403125_Create_Table_TicTuc.resx">
-      <DependentUpon>202111290403125_Create_Table_TicTuc.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111290440489_Create_Table_Account.resx">
       <DependentUpon>202111290440489_Create_Table_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112021706205_Role.resx">
+      <DependentUpon>202112021706205_Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112021852077_Create_Table_TinTuc.resx">
+      <DependentUpon>202112021852077_Create_Table_TinTuc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

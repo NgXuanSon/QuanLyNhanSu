@@ -30,5 +30,9 @@ namespace QuanLyNhanSu.Models
             public string DiaChi { get; set; }
             [Display(Name = "Ngày vào làm")]
             public DateTime NgayVaolam { get; set; }
-        }
+        public virtual ICollection<BangLuong> BangLuongs { get; set; }
+        public virtual ICollection<ChamCong> ChamCongs { get; set; }
+        public virtual ICollection<KhenThuong> KhenThuongs { get; set; }
+        public virtual ICollection<KyLuat> KyLuat { get; set; }
+    }
 }

@@ -17,6 +17,7 @@ namespace QuanLyNhanSu.Models
             public string MaPB { get; set; }
             [Display(Name = "Tên phòng ban")]
             public string TenPB { get; set; }
-          
-        }
+             public virtual ICollection<ChucVu> ChucVus { get; set; }
+
+    }
 }

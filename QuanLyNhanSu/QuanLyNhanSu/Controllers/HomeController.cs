@@ -7,7 +7,9 @@ using System.Web.Mvc;
 namespace QuanLyNhanSu.Controllers
 {
     public class HomeController : Controller
+
     {
+        //Action cho phép truy cập
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -19,6 +21,7 @@ namespace QuanLyNhanSu.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
+            //Kiểm tra đăng nhập trước khi truy cập action
         }
         [AllowAnonymous]
         public ActionResult Contact()

@@ -18,8 +18,9 @@ namespace QuanLyNhanSu.Models
         public virtual DbSet<BangLuong> BangLuongs { get; set; }
         public virtual DbSet<KhenThuong> KhenThuongs { get; set; }
         public virtual DbSet<KyLuat> KyLuats { get; set; }
-        public virtual DbSet<TinTuc> TinTucs { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<TinTuc>TinTucs { get; set; }
+  
 
 
 
@@ -33,9 +34,12 @@ namespace QuanLyNhanSu.Models
             modelBuilder.Entity<PhongBan>()
                .Property(e => e.MaPB)
                .IsUnicode(false);
-           
-
-
+            modelBuilder.Entity<ChucVu>()
+              .Property(e => e.IDChucVu)
+              .IsUnicode(false);
         }
+        public System.Data.Entity.DbSet<QuanLyNhanSu.Models.Role> Roles { get; set; }
+
+      
     }
 }
